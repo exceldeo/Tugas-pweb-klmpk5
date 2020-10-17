@@ -1,17 +1,14 @@
 <?php 
-include 'function.php';
+  include 'function.php';
+
+  session_start();
 
   if(ubah($_POST)>0){
-    echo ' <script>
-    alert("data berhasil di ubah");
-    document.location.href="index.php";
-    </script>';
+    $_SESSION["success_message"] = "data berhasil diubah";
   }
   else{
-    echo ' <script>
-    alert("data gagal di ubah");
-    document.location.href="index.php";
-    </script>';
+    $_SESSION["fail_message"] = "data gagal diubah";
   }
-
+  header('Location: index.php');
+  exit;
 ?>

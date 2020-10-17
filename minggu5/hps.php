@@ -1,17 +1,14 @@
 <?php
-require 'function.php';
+  require 'function.php';
 
-$id=$_POST["id"];
+  $id=$_POST["id"];
+  session_start();
 
-if(hapus($id)>0){
-    echo ' <script>
-    alert("data berhasil di dihapus");
-    document.location.href="index.php";
-    </script>';
+  if(hapus($id)>0){
+    $_SESSION["success_message"] = "data berhasil dihapus";
   }
   else{
-    echo ' <script>
-    alert("data gagal di dihapus");
-    document.location.href="index.php";
-    </script>';
+    $_SESSION["fail_message"] = "data gagal dihapus";
   }
+  header('Location: index.php');
+  exit;

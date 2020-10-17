@@ -24,10 +24,13 @@ $data = query("SELECT * FROM user WHERE id = '$id'")[0];
   </head>
   <body>
     <nav class="navbar navbar-light bg-light mb-3">
-        <a class="navbar-brand" href="index.html">Navbar</a>
+        <a class="navbar-brand" href="index.html">Guest Book</a>
     </nav>
     <main class="container">
-      <div class="row" style="border:0.5px solid black;background-color:#f5f5f5">
+      <div class="text-center">
+        <h3>Ubah Data</h3>
+      </div>
+      <div class="row" style="solid">
         <div class="col-12">
           <form action="ubah.php" method="post">
             <input type="hidden" name="id" value="<?=$data['id'];?>">
@@ -41,8 +44,9 @@ $data = query("SELECT * FROM user WHERE id = '$id'")[0];
             </div>
             <div class="form-group">
               <label for="no_hp">No HP</label>
-              <input type="text" class="form-control" value="<?=$data['no_hp']?>" id="no_hp" name="no_hp" required autocomplete="off">
+              <input type="number" class="form-control" value="<?=$data['no_hp']?>" id="no_hp" name="no_hp" required autocomplete="off">
             </div>
+            <a href="index.php" type="button" class="btn btn-danger">Batal</a>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>

@@ -1,17 +1,13 @@
 <?php 
     include 'function.php';
     
+    session_start();
     if(tambah($_POST)>0){
-        echo ' <script>
-        alert("data berhasil di tambahkan");
-        document.location.href="index.php";
-        </script>';
+        $_SESSION["success_message"] = "data berhasil ditambahkan";
     }
     else{
-        echo ' <script>
-        alert("data gagal di tambahkan");
-        document.location.href="index.php";
-        </script>';
+        $_SESSION["fail_message"] = "data gagal ditambahkan";
     }
-
+    header('Location: index.php');
+    exit;
 ?>
